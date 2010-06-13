@@ -1,10 +1,9 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0.beta4'
+gem 'rails3-generators'
 
-# To use debugger
-# gem 'ruby-debug'
-
-
-# Bundle gems for certain environments:
-# gem 'rspec', :group => :test
+group :test do
+  gem 'rspec'
+  gem 'factory_girl'
+end
