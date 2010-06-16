@@ -1,4 +1,8 @@
 Changelogg::Application.routes.draw do |map|
+  resources :repositories, :only => [:new, :create, :show]
+
+  root :to => "repositories#new"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
