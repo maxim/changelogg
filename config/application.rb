@@ -35,10 +35,11 @@ module Changelogg
 
     # Configure generators values. Many other options are available, be sure to check the documentation.
     config.generators do |g|
-      g.orm             :mongoid, :migration => false
+      g.orm :mongoid, :migration => false
       g.template_engine :erb
-      g.test_framework  :rspec, :fixture => true
+      g.test_framework :rspec, :fixture => true
       g.fixture_replacement :factory_girl, :dir => 'spec/factories'
+      g.scaffold_controller :scaffold_controller, :helper => false
     end
 
     # Configure the default encoding used in templates for Ruby 1.9.
