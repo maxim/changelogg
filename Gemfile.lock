@@ -1,0 +1,190 @@
+--- 
+hash: 2cd40c5155589c631851c6dad34815eabaee41a2
+sources: 
+- Git: 
+    git: git://github.com/durran/mongoid.git
+    uri: git://github.com/durran/mongoid.git
+    ref: d8581aab702cbbf642b5799c841351bbc7e60c55
+- Rubygems: 
+    uri: http://rubygems.org
+specs: 
+- rake: 
+    version: 0.8.7
+- abstract: 
+    version: 1.0.0
+- activesupport: 
+    version: 3.0.0.beta4
+- builder: 
+    version: 2.1.2
+- i18n: 
+    version: 0.4.1
+- activemodel: 
+    version: 3.0.0.beta4
+- erubis: 
+    version: 2.6.5
+- rack: 
+    version: 1.1.0
+- rack-mount: 
+    version: 0.6.4
+- rack-test: 
+    version: 0.5.4
+- tzinfo: 
+    version: 0.3.22
+- actionpack: 
+    version: 3.0.0.beta4
+- mime-types: 
+    version: "1.16"
+- polyglot: 
+    version: 0.3.1
+- treetop: 
+    version: 1.4.8
+- mail: 
+    version: 2.2.4
+- actionmailer: 
+    version: 3.0.0.beta4
+- arel: 
+    version: 0.4.0
+- activerecord: 
+    version: 3.0.0.beta4
+- activeresource: 
+    version: 3.0.0.beta4
+- addressable: 
+    version: 2.1.2
+- bond: 
+    version: 0.2.1
+- bson: 
+    version: 1.0.3
+- bson_ext: 
+    version: 1.0.1
+- bundler: 
+    version: 0.9.26
+- culerity: 
+    version: 0.2.10
+- nokogiri: 
+    version: 1.4.2
+- ffi: 
+    version: 0.6.3
+- json_pure: 
+    version: 1.4.3
+- selenium-webdriver: 
+    version: 0.0.23
+- capybara: 
+    version: 0.3.8
+- configuration: 
+    version: 1.1.0
+- diff-lcs: 
+    version: 1.1.2
+- trollop: 
+    version: 1.16.2
+- gherkin: 
+    version: 2.0.2
+- term-ansicolor: 
+    version: 1.0.5
+- cucumber: 
+    version: 0.8.3
+- cucumber-rails: 
+    version: 0.3.2
+- database_cleaner: 
+    version: 0.5.2
+- factory_girl: 
+    version: 1.3.0
+- launchy: 
+    version: 0.3.5
+- looksee: 
+    version: 0.2.1
+- mongo: 
+    version: 1.0.3
+- will_paginate: 
+    version: 3.0.pre
+- mongoid: 
+    version: 2.0.0.beta7
+    source: 0
+- thor: 
+    version: 0.13.6
+- railties: 
+    version: 3.0.0.beta4
+- rails: 
+    version: 3.0.0.beta4
+- rails3-generators: 
+    version: 0.8.2
+- rspec-core: 
+    version: 2.0.0.beta.12
+- rspec-expectations: 
+    version: 2.0.0.beta.12
+- rspec-mocks: 
+    version: 2.0.0.beta.12
+- rspec: 
+    version: 2.0.0.beta.12
+- webrat: 
+    version: 0.7.1
+- rspec-rails: 
+    version: 2.0.0.beta.12
+- spork: 
+    version: 0.8.4
+- wirble: 
+    version: 0.1.3
+dependencies: 
+  rails: 
+    version: = 3.0.0.beta4
+    group: 
+    - :default
+  rails3-generators: 
+    version: ">= 0"
+    group: 
+    - :default
+  mongoid: 
+    version: ">= 0"
+    group: 
+    - :default
+  bson_ext: 
+    version: = 1.0.1
+    group: 
+    - :default
+  addressable: 
+    version: ">= 0"
+    group: 
+    - :default
+  bond: 
+    version: ">= 0"
+    group: 
+    - :development
+  looksee: 
+    version: ">= 0"
+    group: 
+    - :development
+  wirble: 
+    version: ">= 0"
+    group: 
+    - :development
+  capybara: 
+    version: ">= 0"
+    group: 
+    - :test
+  database_cleaner: 
+    version: ">= 0"
+    group: 
+    - :test
+  cucumber-rails: 
+    version: ">= 0"
+    group: 
+    - :test
+  cucumber: 
+    version: ">= 0"
+    group: 
+    - :test
+  spork: 
+    version: ">= 0"
+    group: 
+    - :test
+  launchy: 
+    version: ">= 0"
+    group: 
+    - :test
+  rspec-rails: 
+    version: = 2.0.0.beta.12
+    group: 
+    - :test
+  factory_girl: 
+    version: ">= 0"
+    group: 
+    - :test
