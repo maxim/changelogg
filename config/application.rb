@@ -35,7 +35,7 @@ module Changelogg
 
     # Configure generators values. Many other options are available, be sure to check the documentation.
     config.generators do |g|
-      # g.orm             :mongomapper
+      g.orm             :mongoid, :migration => false
       g.template_engine :erb
       g.test_framework  :rspec, :fixture => true
       g.fixture_replacement :factory_girl, :dir => 'spec/factories'
