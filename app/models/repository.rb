@@ -6,7 +6,7 @@ class Repository
   validates :uri, :presence => true, :uri => true
 
   def uri=(given_uri)
-    given_uri = "http://#{given_uri}" if given_uri !~ /^[^:]+:\/\//i
+    given_uri = "http://#{given_uri}" if given_uri !~ /^[^:]+:\/\//i && !given_uri.blank?
     write_attribute(:uri, given_uri)
   end
 end
