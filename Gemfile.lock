@@ -1,5 +1,5 @@
 --- 
-hash: 2cd40c5155589c631851c6dad34815eabaee41a2
+hash: ac1caf224838e6ec7997571d5596e7f5a7edfa93
 sources: 
 - Git: 
     git: git://github.com/durran/mongoid.git
@@ -48,8 +48,6 @@ specs:
     version: 3.0.0.beta4
 - activeresource: 
     version: 3.0.0.beta4
-- addressable: 
-    version: 2.1.2
 - bond: 
     version: 0.2.1
 - bson: 
@@ -67,7 +65,7 @@ specs:
 - json_pure: 
     version: 1.4.3
 - selenium-webdriver: 
-    version: 0.0.23
+    version: 0.0.24
 - capybara: 
     version: 0.3.8
 - configuration: 
@@ -138,10 +136,6 @@ dependencies:
     - :default
   bson_ext: 
     version: = 1.0.1
-    group: 
-    - :default
-  addressable: 
-    version: ">= 0"
     group: 
     - :default
   bond: 
