@@ -25,7 +25,14 @@ module Fetcher
     
     private
     def fetch_commits
-      JSON.parse(Typhoeus::Request.get(commits_uri).body)
+      commits = JSON.parse(Typhoeus::Request.get(commits_uri).body)
+      if commits.key? 'commits'
+        commits['commits']
+      else
+        raise ApiError, "response missing required commits key"
+      end
+    rescue JSON::ParserError => e
+      raise ApiError, e.message
     end
   end
 end
