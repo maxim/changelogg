@@ -1,5 +1,5 @@
 Changelogg::Application.routes.draw do |map|
-  resources :repositories, :only => [:new, :create, :show]
+  resources :repositories, :only => [:new, :create]
 
   root :to => "repositories#new"
 
