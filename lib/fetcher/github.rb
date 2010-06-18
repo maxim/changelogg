@@ -4,6 +4,7 @@ module Fetcher
     
     COMMITS_URI_TEMPLATE = "http://github.com/api/v2/json/commits/list/%s/%s/master"
     URI_VALIDATOR = /^(http:\/\/|git:\/\/)?github.com\/[^\/]+\/[^\/]+\/?/i
+    TIME_KEYS = ["committed_date", "authored_date"]
     
     def initialize(uri)
       @uri = uri.strip.downcase
@@ -13,9 +14,9 @@ module Fetcher
 
     def commits(reload = false)
       if reload
-        @commits = fetch_commits
+        @commits = fetch_and_process_commits
       else
-        @commits ||= fetch_commits
+        @commits ||= fetch_and_process_commits
       end
     end
     
@@ -24,6 +25,11 @@ module Fetcher
     end
     
     private
+    def fetch_and_process_commits
+      commits = fetch_commits
+      commits = parse_time_values(commits)
+    end
+    
     def fetch_commits
       commits = JSON.parse(Typhoeus::Request.get(commits_uri).body)
       if commits.key? 'commits'
@@ -33,6 +39,18 @@ module Fetcher
       end
     rescue JSON::ParserError => e
       raise ApiError, e.message
+    end
+
+    def parse_time_values(commits)
+      commits.each do |commit|
+        TIME_KEYS.each do |time_key|
+          if commit[time_key]
+            commit[time_key] = Time.parse(commit[time_key])
+          end
+        end
+      end
+      
+      commits
     end
   end
 end
