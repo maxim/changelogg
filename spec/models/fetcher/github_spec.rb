@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Fetcher::Github do
+  include UriStubbing
+  
   it "should retain uri" do
     fetcher = Fetcher::Github.new('http://github.com/maxim/changelogg')
     fetcher.uri.should == 'http://github.com/maxim/changelogg'
@@ -49,10 +51,5 @@ describe Fetcher::Github do
     commits[0]['committed_date'].should be_a_kind_of(Time)
     commits[0]['foo'].should_not be_a_kind_of(Time)
     commits[1]['authored_date'].should be_a_kind_of(Time)
-  end
-  
-  def stub_uri(uri, response_body)
-    response = Typhoeus::Response.new :code => 200, :body => response_body
-    Typhoeus::Request.stub(:get, uri).and_return(response)
   end
 end
