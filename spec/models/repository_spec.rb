@@ -32,14 +32,11 @@ describe Repository do
   end
   
   it "should populate its commits" do
-    stub_uri "http://github.com/api/v2/json/commits/list/maxim/changelogg/master",
-             '{"commits":[{"commit1":"commit1"},{"commit2":"commit2"}]}'
-    
     repository = Repository.new(:uri => "http://github.com/maxim/changelogg")
     repository.fetch_commits!
     
-    repository.commits.size.should == 2
-    repository.commits.first.commit1.should == 'commit1'
-    repository.commits.second.commit2.should == 'commit2'
+    repository.commits.size.should == 3
+    repository.commits.first.tree.should == 'b4ed90aea9846cd5857508b4353cf4daeee59eb2'
+    repository.commits.second.tree.should == '23c480ee1b11c1b3aecca3b0510c84afe8c3f19b'
   end
 end
