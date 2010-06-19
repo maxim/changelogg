@@ -6,14 +6,6 @@ describe RepositoriesController do
     @mock_repository ||= mock_model(Repository, stubs).as_null_object
   end
 
-  describe "GET show" do
-    it "assigns the requested repository as @repository" do
-      Repository.stub(:find).with("37") { mock_repository }
-      get :show, :id => "37"
-      assigns(:repository).should be(mock_repository)
-    end
-  end
-
   describe "GET new" do
     it "assigns a new repository as @repository" do
       Repository.stub(:new) { mock_repository }
@@ -31,10 +23,10 @@ describe RepositoriesController do
         assigns(:repository).should be(mock_repository)
       end
 
-      it "redirects to the created repository" do
+      it "redirects to corresponding changelog" do
         Repository.stub(:new) { mock_repository(:save => true) }
         post :create, :repository => {}
-        response.should redirect_to(repository_url(mock_repository))
+        response.should redirect_to(changelog_url(mock_repository))
       end
     end
 

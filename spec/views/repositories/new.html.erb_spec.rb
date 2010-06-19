@@ -4,7 +4,7 @@ describe "repositories/new.html.erb" do
   before(:each) do
     assign(:repository, stub_model(Repository,
       :new_record? => true,
-      :uri => "MyString"
+      :uri => "http://github.com/maxim/changelogg"
     ))
   end
 

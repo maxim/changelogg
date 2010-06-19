@@ -1,0 +1,7 @@
+<h1>Changelog for <%= @changelog.repository.uri %></h1>
+
+<ul id="entries">
+  <% @changelog.entries.each do |entry| %>
+    <li><%= entry %></li>
+  <% end %>
+</ul>
