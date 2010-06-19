@@ -3,7 +3,7 @@ module Fetcher
     attr_reader :uri, :user, :repo
     
     COMMITS_URI_TEMPLATE = "http://github.com/api/v2/json/commits/list/%s/%s/master"
-    URI_VALIDATOR = /^(http:\/\/|git:\/\/)?github.com\/[^\/]+\/[^\/]+\/?/i
+    URI_VALIDATOR = /^\s*(http:\/\/|git:\/\/)?github.com\/[^\/]+\/[^\/]+\/?\s*$/i
     TIME_KEYS = ["committed_date", "authored_date"]
     
     def initialize(uri)
