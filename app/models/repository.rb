@@ -5,8 +5,8 @@ class Repository
   field :uri, :type => String
   embeds_many :commits
 
-  validates :uri, :presence => true, :uri => true
-  
+  validates :uri, :presence => true, :uri => true, :format => FETCHER::URI_VALIDATOR
+
   before_create :fetch_commits!
 
   def uri=(given_uri)
