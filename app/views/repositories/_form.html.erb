@@ -2,7 +2,6 @@
   <% if @repository.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@repository.errors.count, "error") %> prohibited this repository from being saved:</h2>
-
       <ul>
       <% @repository.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -12,10 +11,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :uri %><br />
-    <%= f.text_field :uri %>
+    <span class="prefix">http://github.com/</span>
+    <%= f.text_field :uri, :class => 'text' %>
   </div>
   <div class="actions">
-    <%= f.submit "Fetch!" %>
+    <%= f.submit "Fetch!", :class => 'button blue bigrounded vt-p' %>
   </div>
 <% end %>

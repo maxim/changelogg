@@ -1,0 +1,10 @@
+.new_repository_header { text-align: center; margin-top: 100px; margin-bottom: 40px; font-size: 3em; }
+
+#new_repository { width: 710px; margin: 0 auto; text-align: center; }
+#new_repository .text { line-height: 40px; font-size: 25px; width: 400px; vertical-align: middle; font-family: Garamond, "Hoefler Text", "Palatino", "Palatino Linotype", serif; }
+
+.field { background: #fff; padding: 2em 1em; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px; }
+
+#repository_submit { margin-top: 20px; font-size: 20px; }
+
+.prefix { line-height: 30px; display: inline-block; vertical-align: middle; font-size: 20px; color: #888; }
