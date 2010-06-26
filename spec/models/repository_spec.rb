@@ -31,6 +31,24 @@ describe Repository do
     repository.should be_valid
   end
   
+  it "should add http://github.com/ if no domain was specified" do
+    repository = Repository.new(:uri => "maxim/changelogg")
+    repository.uri.should == 'http://github.com/maxim/changelogg'
+    repository.should be_valid
+  end
+  
+  it "should add http://github.com/ if no domain was specified" do
+    repository = Repository.new(:uri => "maxim/changelogg")
+    repository.uri.should == 'http://github.com/maxim/changelogg'
+    repository.should be_valid
+  end
+  
+  it "should add http://github.com if no domain was specified, but started with slash" do
+    repository = Repository.new(:uri => "/maxim/changelogg")
+    repository.uri.should == 'http://github.com/maxim/changelogg'
+    repository.should be_valid
+  end
+  
   it "should populate its commits" do
     repository = Repository.new(:uri => "http://github.com/maxim/changelogg")
     repository.fetch_commits!
