@@ -1,4 +1,4 @@
-class UriValidator < ActiveModel::EachValidator
+class GenericUriValidator < ActiveModel::EachValidator
   IPv4_PART = /\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]/  # 0-255
   REGEXP = %r{
     \A

@@ -1,6 +1,8 @@
 module Fetcher
   class Fake
     attr_reader :uri
+    
+    URI_VALIDATOR = /^\s*(http:\/\/|git:\/\/)?github.com\/[^\/]+\/[^\/]+\/?\s*$/i
 
     def initialize(uri)
       @uri = uri.strip.downcase
