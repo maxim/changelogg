@@ -3,6 +3,7 @@ module Fetcher
     attr_reader :uri, :user, :repo
     
     COMMITS_URI_TEMPLATE = "http://github.com/api/v2/json/commits/list/%s/%s/master"
+    TAGS_URI_TEMPLATE = "http://github.com/api/v2/json/repos/show/%s/%s/tags"
     URI_VALIDATOR = /^\s*(http:\/\/|git:\/\/)?github.com\/[^\/]+\/[^\/]+\/?\s*$/i
     TIME_KEYS = ["committed_date", "authored_date"]
     
@@ -20,11 +21,35 @@ module Fetcher
       end
     end
     
+    def tags(reload = false)
+      if reload
+        @tags = fetch_tags
+      else
+        @tags ||= fetch_tags
+      end
+    end
+    
     def commits_uri
       sprintf(COMMITS_URI_TEMPLATE, @user, @repo)
     end
     
+    def tags_uri
+      sprintf(TAGS_URI_TEMPLATE, @user, @repo)
+    end
+    
     private
+    
+    def fetch_tags
+      tags = JSON.parse(Typhoeus::Request.get(tags_uri).body)
+      if tags.key? 'tags'
+        tags['tags']
+      else
+        raise ApiError, "response missing required 'tags' key"
+      end
+    rescue JSON::ParserError => e
+      raise ApiError, e.message
+    end
+    
     def fetch_and_process_commits
       commits = fetch_commits
       commits = parse_time_values(commits)
@@ -35,7 +60,7 @@ module Fetcher
       if commits.key? 'commits'
         commits['commits']
       else
-        raise ApiError, "response missing required commits key"
+        raise ApiError, "response missing required 'commits' key"
       end
     rescue JSON::ParserError => e
       raise ApiError, e.message

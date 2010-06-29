@@ -41,5 +41,10 @@ module Fetcher
           "committer"=>{"name"=>"Maxim Chernyak", "login"=>"maxim", "email"=>"max@bitsonnet.com"}}
       ]
     end
+    
+    def tags
+      { "1.1.0" => "6566e62a119137d7bbebe7e0d2ca8b31c6d6f1e6", 
+        "0.9.0" => "440335465f1d010cff9faf12c37da45668637f93"}
+    end
   end
 end
