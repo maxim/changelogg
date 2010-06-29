@@ -57,4 +57,11 @@ describe Repository do
     repository.commits.first.tree.should == 'b4ed90aea9846cd5857508b4353cf4daeee59eb2'
     repository.commits.second.tree.should == '23c480ee1b11c1b3aecca3b0510c84afe8c3f19b'
   end
+  
+  it "should populate commit tags when fetching commits" do
+    repository = Repository.new(:uri => "http://github.com/maxim/changelogg")
+    repository.fetch_commits!
+    repository.commits.first.tag.should == "1.1.0"
+    repository.commits.last.tag.should == "0.9.0"
+  end
 end

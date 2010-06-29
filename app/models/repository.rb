@@ -16,6 +16,16 @@ class Repository
   end
   
   def fetch_commits!
-    self.commits = FETCHER.new(uri).commits
+    fetcher = FETCHER.new(uri)
+    self.commits = fetcher.commits
+    tags = fetcher.tags
+    
+    commits.each do |commit|
+      tags.each do |tag_name, tag_commit_id|
+        if commit.id == tag_commit_id
+          commit['tag'] = tag_name
+        end
+      end
+    end
   end
 end
